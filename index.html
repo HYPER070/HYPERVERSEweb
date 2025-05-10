@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+   <!-- Ավելացրել եմ Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
@@ -11,7 +13,9 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
-
+* {
+    font-family: 'Poppins', sans-serif;
+}
         /* Header Styles */
         header {
             padding: 1rem;
@@ -30,23 +34,81 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+/* Նոր ստվերային էֆեկտներ */
+.feature-card:hover {
+    box-shadow: 0 15px 45px rgba(75, 192, 255, 0.25);
+}
 
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #000000;
-            transition: transform 0.3s ease;
-        }
+/* Իկոնների անիմացիա */
+.icon-wrapper {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.feature-card:hover .icon-wrapper {
+    transform: rotate(15deg) scale(1.2);
+}
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+    animation: logoIntro 1s ease-out forwards;
+    animation-delay: 0.3s;
+        background: linear-gradient(45deg, #4bc0ff, #0098d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Լոգոյի մուտքի անիմացիա */
+@keyframes logoIntro {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Փայլող էֆեկտ hover-ի ժամանակ */
+.logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(75,192,255,0.3), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.logo:hover::after {
+    left: 100%;
+}
+
+/* Տարրական ցնցում hover-ի ժամանակ */
+.logo:hover {
+    animation: shake 0.4s ease-in-out;
+}
+
+/* Ցնցման անիմացիա */
+@keyframes shake {
+    0% { transform: scale(1.05) rotate(0deg); }
+    25% { transform: scale(1.07) rotate(2deg); }
+    50% { transform: scale(1.05) rotate(-2deg); }
+    75% { transform: scale(1.07) rotate(1deg); }
+    100% { transform: scale(1.05) rotate(0deg); }
+}
+
+
 
         .logo:hover {
             transform: scale(1.05);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            color: white;
-        }
+       
 
         /* Hero Section */
         .hero {
@@ -54,8 +116,7 @@
             padding: 8rem 2rem 4rem;
             background: #232323;
             border-radius: 20px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                              url('https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2232&auto=format&fit=crop');
+          background-color:#000000;
             background-size: cover;
             background-position: center;
             min-height: 40vh;
@@ -63,6 +124,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+
         }
 
         .hero h1 {
@@ -97,11 +160,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .btn-primary:hover {
-            background: #3aa8e0;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 7px 14px rgba(75, 192, 255, 0.4);
-        }
+       
 
         .btn-secondary {
             border: 2px solid #4bc0ff;
@@ -127,6 +186,8 @@
             border-radius: 20px;
             margin: 2rem auto;
             max-width: 1200px;
+            max-height: 1200px;
+
         }
 
         .feature-card {
@@ -199,7 +260,7 @@
         footer {
             background: #000000;
             color: white;
-            padding: 2rem 1rem;
+            padding: 1.3rem 1rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -212,7 +273,6 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #4bc0ff, #00a6ff);
             animation: rainbow 5s linear infinite;
         }
 
@@ -225,7 +285,7 @@
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 18px;
             margin-top: 25px;
         }
 
@@ -234,14 +294,10 @@
             font-size: 28px;
             text-decoration: none;
             transition: all 0.3s ease;
-            transform: translateY(0);
             display: inline-block;
         }
 
-        .social-icons a:hover {
-            color: #4bc0ff;
-            transform: translateY(-5px);
-        }
+       
 
         /* Mobile Styles */
         @media (max-width: 768px) {
@@ -269,7 +325,6 @@
             border: none;
             font-size: 1.5rem;
             color: #000000;
-            cursor: pointer;
             transition: transform 0.3s ease;
             z-index: 101;
         }
@@ -434,6 +489,115 @@
             visibility: visible;
             opacity: 1;
         }
+        /* Բարելավված բուրգեր մենյու */
+.nav-links a {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.nav-links.show a {
+    transform: translateX(0);
+    opacity: 1;
+}
+:root {
+    --space-gradient: linear-gradient(135deg, #000428 0%, #020024 30%, #004e92 70%, #0d8799 100%);
+    --neon-blue: #4bc0ff;
+    --deep-purple: #6a11cb;
+}
+
+/* Հերոսի բաժնի վերափոխում */
+.hero {
+    background: var(--space-gradient);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Աստղային էֆեկտ */
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="10" cy="10" r="1" fill="white" opacity="0.8"/></svg>');
+    animation: stars 120s linear infinite;
+}
+
+@keyframes stars {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Տառատեսակի բարելավում */
+.hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    position: relative;
+    background: linear-gradient(45deg, var(--neon-blue), var(--deep-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Կոճակների հոլովակային էֆեկտ */
+.btn-primary {
+    position: relative;
+    isolation: isolate;
+    border: 2px solid rgba(75, 192, 255, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, var(--neon-blue), var(--deep-purple));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+/* 3D քարտերի էֆեկտ */
+.feature-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.feature-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.feature-card:hover .feature-card-inner {
+    transform: rotateY(15deg) rotateX(10deg) translateZ(20px);
+}
+
+/* Նոր սոցիալական իկոնների էֆեկտ */
+.social-icons a {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icons a::after {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    top: -5%;
+    left: -5%;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.social-icons a:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
     </style>
 </head>
 <body>
@@ -453,7 +617,7 @@
 
     <section class="hero parallax">
         <h1>HyperVerse Is An Airdrop App</h1>
-        <p>All rights reserved.</p>
+        <p>it's now or never․</p>
         <div>
             <a href="https://t.me/hyperrverse_bot" class="btn btn-primary">Open HyperVerse</a>
             <a href="https://t.me/HyperrVersee" class="btn btn-secondary">Join Community</a>
@@ -467,7 +631,7 @@
         </div>
         <div class="feature-card">
             <h3>Q?</h3>
-            <p>Play and collect points, then convert them into tokens</p>
+            <p>Play and collect score, then convert them into tokens</p>
         </div>
         <div class="feature-card">
             <h3>Q?</h3>
@@ -476,7 +640,7 @@
     </section>
 
     <footer id="footer">
-        <p>© 2025 UNIVERSE. All rights reserved.</p>
+        <p>© 2025 HYPERVERSE. All rights reserved.</p>
         <div class="social-icons">
             <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -552,7 +716,7 @@
             if (featureCards.length > 0) {
                 setTimeout(() => {
                     featureCards[0].classList.add('visible');
-                }, 500);
+                }, 1000);
 
                 if (featureCards.length > 1) {
                     setTimeout(() => {
@@ -608,7 +772,31 @@
                 }, 300);
             });
         });
-        
+        window.onload = () => {
+    document.querySelectorAll('.hero, .feature-card, footer').forEach((el, i) => {
+        el.style.animationDelay = `${i * 2}s`;
+        el.classList.add('fade-in');
+    });
+};
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom >= 0;
+}
+
+function revealOnScroll() {
+    document.querySelectorAll('.feature-card').forEach(el => {
+        if (isInViewport(el)) {
+            el.classList.add('fade-in');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+// Ավելացրել եմ ուժեղ պարալաքս էֆեկտ
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    document.querySelector('.hero').style.transform = `translateY(${scrolled * 0.3}px)`;
+});
     </script>
 </body>
 </html>
