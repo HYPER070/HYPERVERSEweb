@@ -1,802 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
-   <!-- Ավելացրել եմ Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-* {
-    font-family: 'Poppins', sans-serif;
-}
-        /* Header Styles */
-        header {
-            padding: 1rem;
-            background: #ffffff;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            transition: all 0.4s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-/* Նոր ստվերային էֆեկտներ */
-.feature-card:hover {
-    box-shadow: 0 15px 45px rgba(75, 192, 255, 0.25);
-}
-
-/* Իկոնների անիմացիա */
-.icon-wrapper {
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.feature-card:hover .icon-wrapper {
-    transform: rotate(15deg) scale(1.2);
-}
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #000000;
-    position: relative;
-    opacity: 0;
-    transform: translateY(-30px) scale(0.95);
-    animation: logoIntro 1s ease-out forwards;
-    animation-delay: 0.3s;
-        background: linear-gradient(45deg, #4bc0ff, #0098d4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Լոգոյի մուտքի անիմացիա */
-@keyframes logoIntro {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HYPERVERSE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #000000;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 0 15px rgba(0, 208, 255, 0.195);
+      backdrop-filter: blur(10px);
+     border-bottom: #00d0ff solid 3px;
+     border-radius: 12px;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #00d0ff;
+      text-shadow: 0 0 5px #52dfff;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background-color: #00d0ff;
+      color: #00d0ff;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #00d0ff;
+      border-radius: 2px;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        gap: 10px;
+        width: 200px;
+        display: none;
+        padding: 20px;
+        box-shadow: 0 0 15px #0ff4;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+    .hero {
+      padding: 120px 0;
+      text-align: center;
+      color: white;
+      animation: fadeIn 1.5s ease;
+    }
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #000;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 5px #000;
+    }
+    .btn {
+      background: #00d0ff;
+      color: #000;
+      padding: 12px 30px;
+      font-weight: bold;
+      border-radius: 22px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00d0ff;
+    }
+    .btn:hover {
+      background: #60e2ff;
+      transform: scale(1.05);
+    }
+    .section {
+      padding: 80px 0;
+      text-align: center;
+      animation: fadeInUp 1s ease;
+    }
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #00d0ff;
+      text-shadow: 0 0 10px #0ff6;
+    }
+    .section p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+      color: #ccc;
+    }
+    footer {
+      background: #111;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 13px;
+      border-radius: 12px;
+      border-top:#00d0ff solid 3px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+      }
+      
+      .logo {
+        font-size: 24px;
+      }
+      
+      nav ul {
+        top: 50px;
+        width: 100%;
+        right: -20px;
+        padding: 15px;
+      }
+      
+      .hero {
+        padding: 80px 0;
+      }
+      
+      .hero h2 {
+        font-size: 36px;
+        line-height: 1.2;
+        padding: 0 10px;
+      }
+      
+      .hero p {
+        font-size: 16px;
+        padding: 0 15px;
+      }
+      
+      .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 60px 0;
+      }
+      
+      .hero h2 {
+        font-size: 28px;
+      }
+      
+      .section h2 {
+        font-size: 28px;
+      }
+      
+      .section p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+      
+      nav a {
+        padding: 10px;
+        font-size: 14px;
+      }
+      
+      #contact .btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 5px 0;
+      }
+      
+      #contact div {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* Add smooth transition for mobile menu */
+    nav ul {
+      transition: all 0.3s ease;
+    }
+    .contact-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
 }
 
-/* Փայլող էֆեկտ hover-ի ժամանակ */
-.logo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
+@media (min-width: 481px) {
+  .contact-buttons {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Ավելացնել նաև այս ստիլերը մոբայլ օպտիմալացման համար */
+@media (max-width: 480px) {
+  .contact-buttons .btn {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(75,192,255,0.3), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.5s ease-in-out;
-    z-index: 1;
+    max-width: 280px;
+    text-align: center;
+    padding: 12px 15px;
+  }
 }
-
-.logo:hover::after {
-    left: 100%;
-}
-
-/* Տարրական ցնցում hover-ի ժամանակ */
-.logo:hover {
-    animation: shake 0.4s ease-in-out;
-}
-
-/* Ցնցման անիմացիա */
-@keyframes shake {
-    0% { transform: scale(1.05) rotate(0deg); }
-    25% { transform: scale(1.07) rotate(2deg); }
-    50% { transform: scale(1.05) rotate(-2deg); }
-    75% { transform: scale(1.07) rotate(1deg); }
-    100% { transform: scale(1.05) rotate(0deg); }
-}
-
-
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-       
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            background: #232323;
-            border-radius: 20px;
-          background-color:#000000;
-            background-size: cover;
-            background-position: center;
-            min-height: 40vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
-
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #cccccc;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 0.5rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #4bc0ff;
-            color: rgb(0, 0, 0);
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-       
-
-        .btn-secondary {
-            border: 2px solid #4bc0ff;
-            color: #4bc0ff;
-            border-radius: 16px;
-            background: transparent;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(75, 192, 255, 0.1);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 7px 14px rgba(75, 192, 255, 0.2);
-        }
-
-        /* Features Section */
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 4rem 2rem;
-            flex-wrap: wrap;
-            background: linear-gradient(135deg, #58c5ff 0%, #00a6ff 100%);
-            border-radius: 20px;
-            margin: 2rem auto;
-            max-width: 1200px;
-            max-height: 1200px;
-
-        }
-
-        .feature-card {
-            flex: 1;
-            min-width: 280px;
-            max-width: 320px;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .feature-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-card h3 {
-            font-size: 2.5rem;
-            color: #2b2d42;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #4bc0ff, #4bc0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            position: relative;
-        }
-
-        .feature-card h3::before {
-            content: "▲";
-            position: absolute;
-            left: 50%;
-            top: -30px;
-            transform: translateX(-50%);
-            font-size: 1.8rem;
-            color: #4bc0ff;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover h3::before {
-            transform: translateX(-50%) rotate(180deg);
-        }
-
-        .feature-card p {
-            font-size: 1.1rem;
-            color: #4a4a4a;
-            line-height: 1.6;
-            margin: 0;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover p {
-            color: #2b2d42;
-        }
-
-        /* Footer */
-        footer {
-            background: #000000;
-            color: white;
-            padding: 1.3rem 1rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            animation: rainbow 5s linear infinite;
-        }
-
-        @keyframes rainbow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        /* Social Icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            margin-top: 25px;
-        }
-
-        .social-icons a {
-            color: #ffffff;
-            font-size: 28px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-       
-
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (min-width: 481px) {
-           
-        }
-
-        /* Mobile menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #000000;
-            transition: transform 0.3s ease;
-            z-index: 101;
-        }
-
-        .mobile-menu-btn:hover {
-            transform: rotate(90deg);
-        }
-
-        .nav-links {
-            display: flex;
-            position: relative;
-            background: transparent;
-            padding: 0;
-            flex-direction: row;
-            box-shadow: none;
-            color: white;
-            text-decoration: none;
-            max-height: none;
-            opacity: 1;
-        }
-
-        .nav-links a {
-            padding: 0.5rem 1rem;
-            color: #000000;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-        }
-
-        .nav-links a:hover {
-            background: rgba(75, 192, 255, 0.2);
-            color: #4bc0ff;
-        }
-
-        /* Mobile specific styles */
-        @media (max-width: 480px) {
-            header {
-                padding: 0.5rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            .hero {
-                padding: 6rem 1rem 2rem;
-                min-height: 70vh;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .btn {
-                display: block;
-                width: 100%;
-                margin: 0.5rem 0;
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            .features {
-                padding: 0 1rem;
-                margin: 2rem auto;
-            }
-            
-            .feature-card {
-                padding: 1.5rem;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.95);
-                padding: 1rem;
-                flex-direction: column;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                max-height: 0;
-                opacity: 0;
-                transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
-                overflow: hidden;
-            }
-
-            .nav-links.show {
-                max-height: 300px;
-                opacity: 1;
-                padding: 1rem;
-            }
-
-            .nav-links a {
-                padding: 0.8rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                color: white;
-                text-align: center;
-            }
-
-            .nav-links a:hover {
-                background: rgba(75, 192, 255, 0.3);
-                color: white;
-            }
-        }
-
- 
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(75, 192, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #4bc0ff;
-            animation: spin 1s ease-in-out infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Parallax effect */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Tooltip for buttons */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        /* Բարելավված բուրգեր մենյու */
-.nav-links a {
-    transform: translateX(-20px);
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.nav-links.show a {
-    transform: translateX(0);
-    opacity: 1;
-}
-:root {
-    --space-gradient: linear-gradient(135deg, #000428 0%, #020024 30%, #004e92 70%, #0d8799 100%);
-    --neon-blue: #4bc0ff;
-    --deep-purple: #6a11cb;
-}
-
-/* Հերոսի բաժնի վերափոխում */
-.hero {
-    background: var(--space-gradient);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Աստղային էֆեկտ */
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="10" cy="10" r="1" fill="white" opacity="0.8"/></svg>');
-    animation: stars 120s linear infinite;
-}
-
-@keyframes stars {
-    from { transform: translateY(-50%) rotate(0deg); }
-    to { transform: translateY(-50%) rotate(360deg); }
-}
-
-/* Տառատեսակի բարելավում */
-.hero h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    position: relative;
-    background: linear-gradient(45deg, var(--neon-blue), var(--deep-purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Կոճակների հոլովակային էֆեկտ */
-.btn-primary {
-    position: relative;
-    isolation: isolate;
-    border: 2px solid rgba(75, 192, 255, 0.3);
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(45deg, var(--neon-blue), var(--deep-purple));
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.btn-primary:hover::before {
-    opacity: 1;
-}
-
-/* 3D քարտերի էֆեկտ */
-.feature-card {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-}
-
-.feature-card-inner {
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.feature-card:hover .feature-card-inner {
-    transform: rotateY(15deg) rotateX(10deg) translateZ(20px);
-}
-
-/* Նոր սոցիալական իկոնների էֆեկտ */
-.social-icons a {
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.social-icons a::after {
-    content: '';
-    position: absolute;
-    width: 110%;
-    height: 110%;
-    border-radius: 50%;
-    top: -5%;
-    left: -5%;
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.social-icons a:hover::after {
-    opacity: 1;
-    transform: scale(1);
-}
-    </style>
+  </style>
 </head>
 <body>
-
-
-    <header>
-        <nav>
-            <div class="logo">HYPERVERSE</div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-            <div class="nav-links">
-                <a href="index.html" class="tooltip"><span class="tooltiptext">Go to Home</span>Home</a>
-                <a href="https://t.me/hyperrverse_bot" class="tooltip"><span class="tooltiptext">Start Using HyperVerse</span>Get Started</a>
-                <a href="#footer" class="tooltip"><span class="tooltiptext">Join Our Community</span>Community</a>
-            </div>
-        </nav>
-    </header>
-
-    <section class="hero parallax">
-        <h1>HyperVerse Is An Airdrop App</h1>
-        <p>it's now or never․</p>
-        <div>
-            <a href="https://t.me/hyperrverse_bot" class="btn btn-primary">Open HyperVerse</a>
-            <a href="https://t.me/HyperrVersee" class="btn btn-secondary">Join Community</a>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">HYPERVERSE</div>
+        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </section>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#token">Token</a></li>
+          <li><a href="#ecosystem">Ecosystem</a></li>
+          <li><a href="#tasks">Tasks</a></li>
+          <li><a href="https://t.me/Hayko_070">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>Q?</h3>
-            <p>Launch HyperVerse and start your journey</p>
-        </div>
-        <div class="feature-card">
-            <h3>Q?</h3>
-            <p>Play and collect score, then convert them into tokens</p>
-        </div>
-        <div class="feature-card">
-            <h3>Q?</h3>
-            <p>Wait for the airdrop</p>
-        </div>
-    </section>
+  <section id="home" class="hero">
+    <div class="container">
+      <h2>Welcome to HYPERVERSE</h2>
+      <p>Next-gen rewards, blockchain-based tasks, and powerful ecosystem tools.</p>
+      <a href="#token" class="btn">Explore Token</a>
+    </div>
+  </section>
 
-    <footer id="footer">
-        <p>© 2025 HYPERVERSE. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://t.me/HyperrVersee" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-        </div>
-    </footer>
+  <section id="token" class="section">
+    <div class="container">
+      <h2>$HYPER Token</h2>
+<p>Empowering decentralized hyperverse with utility, staking, and governance tools in the future.</p>    </div>
+  </section>
 
-    <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.loader').classList.add('hidden');
-            }, 1500);
-        });
+  <section id="ecosystem" class="section">
+    <div class="container">
+      <h2>Our Ecosystem</h2>
+<p>Games, bots, community apps, and daily rewards for the future $HYPER token.</p>    </div>
+  </section>
 
-        // Mobile menu toggle
-        function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('show');
-            document.querySelector('.mobile-menu-btn').classList.toggle('active');
-        }
+  <section id="tasks" class="section">
+    <div class="container">
+      <h2>Daily Tasks & Rewards</h2>
+      <p>Complete missions, earn rewards, and climb the leaderboard. Available now on our Telegram Mini App.</p>
+    </div>
+  </section>
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('nav') && window.innerWidth <= 480) {
-                document.querySelector('.nav-links').classList.remove('show');
-            }
-        });
+  <section id="contact" class="section">
+  <div class="container">
+    <h2>Join the Community</h2>
+    <p>Follow us on Telegram, X (Twitter) and get the latest updates.</p>
+    <div class="contact-buttons">
+      <a href="https://t.me/hyperrverse_bot" target="_blank" class="btn">Open Telegram Mini App</a>
+      <a href="https://t.me/HyperrVersee" target="_blank" class="btn">Join Telegram Channel</a>
+      <a href="https://x.com/HyperVerse_TG" target="_blank" class="btn">Follow on X</a>
+    </div>
+  </div>
+</section>
 
-        // Scroll effects
-        window.addEventListener('scroll', function() {
-            // Header effect
-            if (window.scrollY > 50) {
-                document.querySelector('header').style.background = 'rgba(255, 255, 255, 0.95)';
-                document.querySelector('header').style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                document.querySelector('header').style.background = '#ffffff';
-                document.querySelector('header').style.boxShadow = 'none';
-            }
+  <footer>
+    <div class="container">
+      <p style="color: #ccc;">&copy; 2025 HYPERVERSE. All rights reserved.</p>
+    </div>
+  </footer>
 
-            // Feature card animations
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach(card => {
-                const cardPosition = card.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-
-                if (cardPosition < screenPosition) {
-                    card.classList.add('visible');
-                }
-            });
-
-            // Parallax effect
-            const hero = document.querySelector('.hero');
-            const scrollValue = window.scrollY;
-            hero.style.backgroundPositionY = scrollValue * 0.5 + 'px';
-        });
-
-        // Initialize animations on load
-        window.addEventListener('DOMContentLoaded', function() {
-            // Animate hero content
-            const heroContent = document.querySelector('.hero h1, .hero p, .hero div');
-            heroContent.style.opacity = '0';
-            heroContent.style.transform = 'translateY(20px)';
-            heroContent.style.transition = 'all 0.8s ease';
-
-            setTimeout(() => {
-                heroContent.style.opacity = '1';
-                heroContent.style.transform = 'translateY(0)';
-            }, 300);
-
-            // Animate first feature card immediately
-            const featureCards = document.querySelectorAll('.feature-card');
-            if (featureCards.length > 0) {
-                setTimeout(() => {
-                    featureCards[0].classList.add('visible');
-                }, 1000);
-
-                if (featureCards.length > 1) {
-                    setTimeout(() => {
-                        featureCards[1].classList.add('visible');
-                    }, 800);
-                }
-
-                if (featureCards.length > 2) {
-                    setTimeout(() => {
-                        featureCards[2].classList.add('visible');
-                    }, 1100);
-                }
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Button ripple effect
-        const buttons = document.querySelectorAll('.btn');
-        buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const x = e.clientX - e.target.getBoundingClientRect().left;
-                const y = e.clientY - e.target.getBoundingClientRect().top;
-                
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                ripple.style.left = `${x}px`;
-                ripple.style.top = `${y}px`;
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 1000);
-                
-                // Open link after animation
-                setTimeout(() => {
-                    window.location.href = this.href;
-                }, 300);
-            });
-        });
-        window.onload = () => {
-    document.querySelectorAll('.hero, .feature-card, footer').forEach((el, i) => {
-        el.style.animationDelay = `${i * 2}s`;
-        el.classList.add('fade-in');
+  <script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+        document.querySelector('nav ul').classList.remove('active');
+      });
     });
-};
-function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top < window.innerHeight && rect.bottom >= 0;
-}
-
-function revealOnScroll() {
-    document.querySelectorAll('.feature-card').forEach(el => {
-        if (isInViewport(el)) {
-            el.classList.add('fade-in');
-        }
-    });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-// Ավելացրել եմ ուժեղ պարալաքս էֆեկտ
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    document.querySelector('.hero').style.transform = `translateY(${scrolled * 0.3}px)`;
-});
-    </script>
+  </script>
 </body>
 </html>
