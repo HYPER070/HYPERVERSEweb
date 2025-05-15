@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HYPERVERSE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,9 +15,9 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron', 'Noto Sans Armenian', 'Noto Sans', sans-serif;
       background-color: #000;
-      color: #000000;
+      color: #ffffff;
       overflow-x: hidden;
     }
     a {
@@ -39,63 +41,13 @@
      border-radius: 12px;
     }
     .logo {
-      font-size: 28px;
+      font-size: 18px;
       font-weight: bold;
       color: #00d0ff;
       text-shadow: 0 0 5px #52dfff;
     }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav a {
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      background-color: #00d0ff;
-      color: #00d0ff;
-    }
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: #00d0ff;
-      border-radius: 2px;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        gap: 10px;
-        width: 200px;
-        display: none;
-        padding: 20px;
-        box-shadow: 0 0 15px #0ff4;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-    }
+   
+    
     .hero {
       padding: 120px 0;
       text-align: center;
@@ -134,13 +86,13 @@
       font-size: 36px;
       margin-bottom: 20px;
       color: #00d0ff;
-      text-shadow: 0 0 10px #0ff6;
+      text-shadow: 0 0 10px rgba(93, 93, 93, 0.4);
     }
     .section p {
       font-size: 18px;
       max-width: 700px;
       margin: auto;
-      color: #ccc;
+      color: #ffffff;
     }
     footer {
       background: #111;
@@ -168,12 +120,7 @@
         font-size: 24px;
       }
       
-      nav ul {
-        top: 50px;
-        width: 100%;
-        right: -20px;
-        padding: 15px;
-      }
+   
       
       .hero {
         padding: 80px 0;
@@ -214,10 +161,7 @@
         padding: 0 10px;
       }
       
-      nav a {
-        padding: 10px;
-        font-size: 14px;
-      }
+    
       
       #contact .btn {
         width: 100%;
@@ -232,9 +176,7 @@
     }
 
     /* Add smooth transition for mobile menu */
-    nav ul {
-      transition: all 0.3s ease;
-    }
+   
     .contact-buttons {
   display: flex;
   flex-direction: column;
@@ -260,28 +202,149 @@
     padding: 12px 15px;
   }
 }
+/* Scrollbar ստիլեր */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 15, 15, 0.95);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d0ff;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 5px #00d0ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d0ff;
+}
+
+/* Firefox-ի համար */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00d0ff rgba(15, 15, 15, 0.95);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: all 0.3s ease;
+  }
+
+  nav a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    background-color: #00d0ff;
+    color: #000;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+  }
+
+  .menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: #00d0ff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 47px; /* վերևից հեռավորությունը */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 300px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid #00d0ff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00d0ff;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  nav ul.active {
+    max-height: 500px;
+    padding: 20px 0;
+  }
+}
+    .menu-toggle {
+      display: flex;
+    }
+  
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav>
-        <div class="logo">HYPERVERSE</div>
-        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#token">Token</a></li>
-          <li><a href="#ecosystem">Ecosystem</a></li>
-          <li><a href="#tasks">Tasks</a></li>
-          <li><a href="https://t.me/Hayko_070">Support</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <nav>
+      <div class="logo">HYPERVERSE</div>
+
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#token">Token</a></li>
+        <li><a href="#ecosystem">Ecosystem</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="https://t.me/Hayko_070">Support</a></li>
+      </ul>
+
+    <div style="margin-left: 20px;">
+  <select id="languageSelect" onchange="changeLanguage()" style="padding: 6px; border-radius: 6px; background: #000; color: #00d0ff; border: 2px solid #00d0ff;">
+    <option value="en">EN</option>
+    <option value="ru">RU</option>
+    <option value="am">AM</option>
+  </select>
+</div>
+
+    </nav>
+  </div>
+</header>
 
   <section id="home" class="hero">
     <div class="container">
@@ -329,14 +392,80 @@
   </footer>
 
   <script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) target.scrollIntoView({ behavior: "smooth" });
-        document.querySelector('nav ul').classList.remove('active');
-      });
-    });
+  // Menu toggle
+  document.getElementById("menuToggle").addEventListener("click", function () {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.classList.toggle("active");
+    this.classList.toggle("active");
+  });
+
+
   </script>
+
+<script>
+  const translations = {
+    en: {
+      welcome: "Welcome to HYPERVERSE",
+      desc: "Next-gen rewards, blockchain-based tasks, and powerful ecosystem tools.",
+      explore: "Explore Token",
+      tokenTitle: "$HYPER Token",
+      tokenDesc: "Empowering decentralized hyperverse with utility, staking, and governance tools in the future.",
+      ecoTitle: "Our Ecosystem",
+      ecoDesc: "Games, bots, community apps, and daily rewards for the future $HYPER token.",
+      tasksTitle: "Daily Tasks & Rewards",
+      tasksDesc: "Complete missions, earn rewards, and climb the leaderboard. Available now on our Telegram Mini App.",
+      joinTitle: "Join the Community",
+      joinDesc: "Follow us on Telegram, X (Twitter) and get the latest updates.",
+    },
+    ru: {
+      welcome: "Добро пожаловать в HYPERVERSE",
+      desc: "Вознаграждения нового поколения, задачи на блокчейне и мощные инструменты экосистемы.",
+      explore: "Изучить токен",
+      tokenTitle: "Токен $HYPER",
+      tokenDesc: "Поддержка децентрализованной hyperverse с утилитами, стейкингом и инструментами управления.",
+      ecoTitle: "Наша экосистема",
+      ecoDesc: "Игры, боты, приложения сообщества и ежедневные награды для будущего токена $HYPER.",
+      tasksTitle: "Ежедневные Задания и Награды",
+      tasksDesc: "Выполняйте миссии, получайте награды и поднимайтесь в таблице лидеров.",
+      joinTitle: "Присоединяйтесь к сообществу",
+      joinDesc: "Следите за нами в Telegram, X (Twitter) и получайте последние обновления.",
+    },
+    am: {
+      welcome: "Բարի գալուստ HYPERVERSE",
+      desc: "Հաջորդ սերնդի պարգևատրումներ, բլոկչեյն առաջադրանքներ և հզոր էկոհամակարգի գործիքներ։",
+      explore: "Բացահայտել Token-ը",
+      tokenTitle: "$HYPER Token",
+      tokenDesc: "Հզորացնել decentralized hyperverse-ը՝ գործնական, staking և կառավարական գործիքներով։",
+      ecoTitle: "Մեր Էկոհամակարգը",
+      ecoDesc: "Խաղեր, բոտեր, համայնքային հավելվածներ և ամենօրյա պարգևներ՝ $HYPER-ի համար։",
+      tasksTitle: "Ամենօրյա Առաջադրանքներ և Մրցանակներ",
+      tasksDesc: "Ավարտիր առաջադրանքները, վաստակիր պարգևներ և բարձրացիր աղյուսակում։",
+      joinTitle: "Միացիր Հասարակությանը",
+      joinDesc: "Հետևիր մեզ Telegram-ում, X-ում (Twitter) և ստացիր վերջին թարմացումները։",
+    },
+  };
+
+  function changeLanguage() {
+    const lang = document.getElementById("languageSelect").value;
+    const t = translations[lang];
+
+    document.querySelector(".hero h2").textContent = t.welcome;
+    document.querySelector(".hero p").textContent = t.desc;
+    document.querySelector(".hero a").textContent = t.explore;
+
+    document.querySelector("#token h2").textContent = t.tokenTitle;
+    document.querySelector("#token p").textContent = t.tokenDesc;
+
+    document.querySelector("#ecosystem h2").textContent = t.ecoTitle;
+    document.querySelector("#ecosystem p").textContent = t.ecoDesc;
+
+    document.querySelector("#tasks h2").textContent = t.tasksTitle;
+    document.querySelector("#tasks p").textContent = t.tasksDesc;
+
+    document.querySelector("#contact h2").textContent = t.joinTitle;
+    document.querySelector("#contact p").textContent = t.joinDesc;
+  }
+</script>
 </body>
+
 </html>
