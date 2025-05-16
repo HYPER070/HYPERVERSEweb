@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
   <title>HYPERVERSE</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/haykoo707/hypervverse/refs/heads/main/photo_2025-04-25_23-12-33.jpg" type="image/x-icon" />
+</head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian&display=swap" rel="stylesheet">
@@ -286,7 +289,7 @@ nav {
 @media (max-width: 768px) {
   nav ul {
     position: absolute;
-    top: 47px; /* վերևից հեռավորությունը */
+    top: 46px; /* վերևից հեռավորությունը */
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.95);
@@ -309,7 +312,13 @@ nav {
   }
 }
     .menu-toggle {
-      display: flex;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
     }
   
   </style>
@@ -334,13 +343,7 @@ nav {
         <li><a href="https://t.me/Hayko_070">Support</a></li>
       </ul>
 
-    <div style="margin-left: 20px;">
-  <select id="languageSelect" onchange="changeLanguage()" style="padding: 6px; border-radius: 6px; background: #000; color: #00d0ff; border: 2px solid #00d0ff;">
-    <option value="en">EN</option>
-    <option value="ru">RU</option>
-    <option value="am">AM</option>
-  </select>
-</div>
+  
 
     </nav>
   </div>
@@ -348,7 +351,7 @@ nav {
 
   <section id="home" class="hero">
     <div class="container">
-      <h2>Welcome to HYPERVERSE</h2>
+      <h2 style="color: #00d0ff;">Welcome to HYPERVERSE</h2>
       <p>Next-gen rewards, blockchain-based tasks, and powerful ecosystem tools.</p>
       <a href="#token" class="btn">Explore Token</a>
     </div>
@@ -378,7 +381,7 @@ nav {
     <h2>Join the Community</h2>
     <p>Follow us on Telegram, X (Twitter) and get the latest updates.</p>
     <div class="contact-buttons">
-      <a href="https://t.me/hyperrverse_bot" target="_blank" class="btn">Open Telegram Mini App</a>
+      <a href="https://t.me/hyperrverse_bot" target="_blank" class="btn">Launch HYPERVERSE Mini App</a>
       <a href="https://t.me/HyperrVersee" target="_blank" class="btn">Join Telegram Channel</a>
       <a href="https://x.com/HyperVerse_TG" target="_blank" class="btn">Follow on X</a>
     </div>
@@ -403,68 +406,8 @@ nav {
   </script>
 
 <script>
-  const translations = {
-    en: {
-      welcome: "Welcome to HYPERVERSE",
-      desc: "Next-gen rewards, blockchain-based tasks, and powerful ecosystem tools.",
-      explore: "Explore Token",
-      tokenTitle: "$HYPER Token",
-      tokenDesc: "Empowering decentralized hyperverse with utility, staking, and governance tools in the future.",
-      ecoTitle: "Our Ecosystem",
-      ecoDesc: "Games, bots, community apps, and daily rewards for the future $HYPER token.",
-      tasksTitle: "Daily Tasks & Rewards",
-      tasksDesc: "Complete missions, earn rewards, and climb the leaderboard. Available now on our Telegram Mini App.",
-      joinTitle: "Join the Community",
-      joinDesc: "Follow us on Telegram, X (Twitter) and get the latest updates.",
-    },
-    ru: {
-      welcome: "Добро пожаловать в HYPERVERSE",
-      desc: "Вознаграждения нового поколения, задачи на блокчейне и мощные инструменты экосистемы.",
-      explore: "Изучить токен",
-      tokenTitle: "Токен $HYPER",
-      tokenDesc: "Поддержка децентрализованной hyperverse с утилитами, стейкингом и инструментами управления.",
-      ecoTitle: "Наша экосистема",
-      ecoDesc: "Игры, боты, приложения сообщества и ежедневные награды для будущего токена $HYPER.",
-      tasksTitle: "Ежедневные Задания и Награды",
-      tasksDesc: "Выполняйте миссии, получайте награды и поднимайтесь в таблице лидеров.",
-      joinTitle: "Присоединяйтесь к сообществу",
-      joinDesc: "Следите за нами в Telegram, X (Twitter) и получайте последние обновления.",
-    },
-    am: {
-      welcome: "Բարի գալուստ HYPERVERSE",
-      desc: "Հաջորդ սերնդի պարգևատրումներ, բլոկչեյն առաջադրանքներ և հզոր էկոհամակարգի գործիքներ։",
-      explore: "Բացահայտել Token-ը",
-      tokenTitle: "$HYPER Token",
-      tokenDesc: "Հզորացնել decentralized hyperverse-ը՝ գործնական, staking և կառավարական գործիքներով։",
-      ecoTitle: "Մեր Էկոհամակարգը",
-      ecoDesc: "Խաղեր, բոտեր, համայնքային հավելվածներ և ամենօրյա պարգևներ՝ $HYPER-ի համար։",
-      tasksTitle: "Ամենօրյա Առաջադրանքներ և Մրցանակներ",
-      tasksDesc: "Ավարտիր առաջադրանքները, վաստակիր պարգևներ և բարձրացիր աղյուսակում։",
-      joinTitle: "Միացիր Հասարակությանը",
-      joinDesc: "Հետևիր մեզ Telegram-ում, X-ում (Twitter) և ստացիր վերջին թարմացումները։",
-    },
-  };
+ 
 
-  function changeLanguage() {
-    const lang = document.getElementById("languageSelect").value;
-    const t = translations[lang];
-
-    document.querySelector(".hero h2").textContent = t.welcome;
-    document.querySelector(".hero p").textContent = t.desc;
-    document.querySelector(".hero a").textContent = t.explore;
-
-    document.querySelector("#token h2").textContent = t.tokenTitle;
-    document.querySelector("#token p").textContent = t.tokenDesc;
-
-    document.querySelector("#ecosystem h2").textContent = t.ecoTitle;
-    document.querySelector("#ecosystem p").textContent = t.ecoDesc;
-
-    document.querySelector("#tasks h2").textContent = t.tasksTitle;
-    document.querySelector("#tasks p").textContent = t.tasksDesc;
-
-    document.querySelector("#contact h2").textContent = t.joinTitle;
-    document.querySelector("#contact p").textContent = t.joinDesc;
-  }
 </script>
 </body>
 
